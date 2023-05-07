@@ -4,11 +4,11 @@ import {
   Divider,
   List,
   ListItem,
-  ListItemText,
   Typography,
 } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { IUser } from '../User/user.type';
+import User from '../User/User';
 
 const Users = () => {
   const [loading, setLoading] = useState(true);
@@ -51,7 +51,15 @@ const Users = () => {
       <List>
         {users.map((user) => (
           <ListItem key={user.id}>
-            <ListItemText primary={'#' + user.id + ' ' + user.name} />
+            <User
+              user={user}
+              onEditUser={() => {
+                console.log('edit user: ', '#' + user.id);
+              }}
+              onRemoveUser={() => {
+                console.log('delete user', '#' + user.id);
+              }}
+            />
           </ListItem>
         ))}
       </List>
