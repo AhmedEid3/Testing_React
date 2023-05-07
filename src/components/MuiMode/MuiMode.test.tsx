@@ -10,7 +10,7 @@ describe('MuiMode', () => {
     expect(modeEle).toBeInTheDocument();
   });
 
-  it('Should show dark mode text @darkMode', () => {
+  it.skip('Should show dark mode text @darkMode', () => {
     render(<MuiMode />);
 
     const modeEle = screen.getByRole('paragraph');
@@ -18,7 +18,7 @@ describe('MuiMode', () => {
     expect(modeEle).toHaveTextContent(/dark mode/);
   });
 
-  it.skip('Should show light mode text @lightMode', () => {
+  it('Should show light mode text @lightMode', () => {
     render(<MuiMode />);
 
     const modeEle = screen.getByRole('paragraph');
