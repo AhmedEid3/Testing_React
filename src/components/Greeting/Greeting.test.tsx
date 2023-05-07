@@ -4,7 +4,7 @@ import Greeting from './Greeting';
 it('should see hello user', () => {
   render(<Greeting />);
 
-  const paragraphElement = screen.getByText(/hello user/i);
+  const paragraphElement = screen.getByText(/hello Guest/i);
 
   expect(paragraphElement).toBeInTheDocument();
 });
