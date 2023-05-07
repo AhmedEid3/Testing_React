@@ -1,13 +1,10 @@
 import { Box, Button, TextField, Typography } from '@mui/material';
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
+import useCounter from './useCounter';
 
 const Counter = () => {
-  const [counter, setCounter] = useState(0);
+  const { counter, setCounter, handleIncrement } = useCounter();
   const amount = useRef<HTMLInputElement>(null);
-
-  const handleIncrement = () => {
-    setCounter((counter) => counter + 1);
-  };
 
   const handleAmount = () => {
     setCounter(Number(amount.current?.value));
