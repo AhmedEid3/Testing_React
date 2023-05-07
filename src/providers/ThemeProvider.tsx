@@ -3,7 +3,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { PropsWithChildren } from 'react';
 
 const theme = createTheme({
-  palette: { mode: 'dark' },
+  palette: { mode: 'light' },
 });
 
 export default function ThemeProviderApp({ children }: PropsWithChildren) {
