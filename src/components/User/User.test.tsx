@@ -1,17 +1,18 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import User from './User';
+import { mockUsersData } from '../../mocks/mockUsers';
 
 describe('User', () => {
   it('should render correctly', () => {
-    render(<User user={{ name: 'Ahmed', age: 30, id: '#1' }} />);
+    render(<User user={mockUsersData[0]} />);
     const userDetailsHeading = screen.getByRole('heading');
     const userNameEle = screen.getByText(/name/i);
-    const userAgeEle = screen.getByText(/age/i);
+    const userEmailEle = screen.getByText(/email/i);
 
     expect(userDetailsHeading).toBeInTheDocument();
     expect(userNameEle).toBeInTheDocument();
-    expect(userAgeEle).toBeInTheDocument();
+    expect(userEmailEle).toBeInTheDocument();
   });
 
   it('should be empty DOM element when user not passed', () => {
@@ -21,7 +22,7 @@ describe('User', () => {
   });
 
   it('should not render edit button and remove button', () => {
-    render(<User user={{ name: 'Ahmed', age: 30, id: '#1' }} />);
+    render(<User user={mockUsersData[0]} />);
 
     const editBtn = screen.queryByRole('button', { name: /edit user/i });
     const removeBtn = screen.queryByRole('button', { name: /remove user/i });
@@ -33,7 +34,7 @@ describe('User', () => {
   it('should render edit button and remove button', () => {
     render(
       <User
-        user={{ name: 'Ahmed', age: 30, id: '#1' }}
+        user={mockUsersData[0]}
         onEditUser={jest.fn}
         onRemoveUser={jest.fn}
       />,
@@ -54,7 +55,7 @@ describe('User', () => {
 
     render(
       <User
-        user={{ name: 'Ahmed', age: 30, id: '#1' }}
+        user={mockUsersData[0]}
         onEditUser={mockOnEditUser}
         onRemoveUser={mockOnRemoveUser}
       />,

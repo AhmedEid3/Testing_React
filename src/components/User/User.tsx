@@ -8,14 +8,14 @@ const User = ({ user, onEditUser, onRemoveUser }: UserProps) => {
     <Box border="1px solid #c9c9c9" borderRadius={1} padding={2}>
       <Box>
         <Typography sx={{ mb: 2 }} variant="h5" component="h2">
-          User Details: {user.id}
+          User Details: #{user.id}
         </Typography>
 
         <Typography component="p" role="paragraph">
           Name: {user.name}
         </Typography>
         <Typography component="p" role="paragraph">
-          Age:{user.age}
+          Email:{user.email}
         </Typography>
       </Box>
 

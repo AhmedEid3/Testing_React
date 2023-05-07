@@ -1,9 +1,10 @@
 import { rest } from 'msw';
+import { IUser } from '../components/User/user.type';
 
-export const mockUsersData = [
-  { id: 1, name: 'Ahmed Eid', age: 30 },
-  { id: 3, name: 'Eman Eid', age: 24 },
-  { id: 7, name: 'Dina Mahmoud', age: 24 },
+export const mockUsersData: Array<IUser> = [
+  { id: '1', name: 'Ahmed Eid', email: 'ahmed@gmail.com' },
+  { id: '3', name: 'Eman Eid', email: 'eman@outlook.com' },
+  { id: '7', name: 'Dina Mahmoud', email: 'dina@gmail.com' },
 ];
 
 export const mockUsersApi = rest.get(
