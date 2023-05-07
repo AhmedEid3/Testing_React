@@ -1,24 +1,22 @@
-import { Box, Button, Divider, Typography } from '@mui/material';
+import { Box, Button, Typography } from '@mui/material';
 import { UserProps } from './user.type';
 
 const User = ({ user, onEditUser, onRemoveUser }: UserProps) => {
   if (!user) return null;
 
   return (
-    <Box>
+    <Box border="1px solid #c9c9c9" borderRadius={1} padding={2}>
       <Box>
-        <Typography variant="h2" component="h2">
-          User Details:
+        <Typography sx={{ mb: 2 }} variant="h5" component="h2">
+          User Details: {user.id}
         </Typography>
+
         <Typography component="p" role="paragraph">
           Name: {user.name}
         </Typography>
         <Typography component="p" role="paragraph">
           Age:{user.age}
         </Typography>
-      </Box>
-      <Box marginY={3}>
-        <Divider />
       </Box>
 
       <Box>
@@ -27,6 +25,7 @@ const User = ({ user, onEditUser, onRemoveUser }: UserProps) => {
             sx={{ mr: 2 }}
             color="primary"
             variant="outlined"
+            size="small"
             onClick={() => onEditUser(user)}
           >
             Edit User
@@ -37,6 +36,7 @@ const User = ({ user, onEditUser, onRemoveUser }: UserProps) => {
           <Button
             color="error"
             variant="outlined"
+            size="small"
             onClick={() => onRemoveUser(user.id)}
           >
             Remove User
