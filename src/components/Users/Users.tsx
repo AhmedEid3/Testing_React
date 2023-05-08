@@ -20,11 +20,7 @@ const Users = () => {
       .then((res) => res.json())
       .then((usersRes) => setUsers(usersRes))
       .catch((e) => {
-        if (e instanceof SyntaxError) {
-          setError('Error Fetching Users');
-        } else {
-          setError(e);
-        }
+        setError('Error fetching users');
       })
       .finally(() => setLoading(false));
   }, []);
