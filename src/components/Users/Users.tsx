@@ -10,6 +10,8 @@ import { useEffect, useState } from 'react';
 import { IUser } from '../User/user.type';
 import User from '../User/User';
 
+import { fetch } from 'cross-fetch';
+
 const Users = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -19,7 +21,7 @@ const Users = () => {
     fetch('https://jsonplaceholder.typicode.com/users')
       .then((res) => res.json())
       .then((usersRes) => setUsers(usersRes))
-      .catch((e) => {
+      .catch(() => {
         setError('Error fetching users');
       })
       .finally(() => setLoading(false));

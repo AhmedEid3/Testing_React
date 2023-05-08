@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import Counter from './Counter';
+import { describe, it, expect } from 'vitest';
 
 describe('Counter', () => {
   it('should render correctly', () => {

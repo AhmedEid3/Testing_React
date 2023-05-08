@@ -1,8 +1,9 @@
+import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
+import { rest } from 'msw';
 import Users from './Users';
 import { mockUsersData } from '../../mocks/mockUsers';
 import { server } from '../../mocks/server';
-import { rest } from 'msw';
 
 describe('Users', () => {
   it('should render correctly', async () => {
@@ -24,7 +25,7 @@ describe('Users', () => {
     server.use(
       rest.get(
         'https://jsonplaceholder.typicode.com/users',
-        (req, res, ctx) => {
+        (_req, res, ctx) => {
           return res(ctx.status(403));
         },
       ),
