@@ -1,18 +1,21 @@
+import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import Greeting from './Greeting';
 
-it('should see hello user', () => {
-  render(<Greeting />);
+describe('Greeting', () => {
+  it('should see hello user', () => {
+    render(<Greeting />);
 
-  const paragraphElement = screen.getByText(/hello Guest/i);
+    const paragraphElement = screen.getByText(/hello Guest/i);
 
-  expect(paragraphElement).toBeInTheDocument();
-});
+    expect(paragraphElement).toBeInTheDocument();
+  });
 
-it('should see hello $username', () => {
-  render(<Greeting username="Ahmed" />);
+  it('should see hello $username', () => {
+    render(<Greeting username="Ahmed" />);
 
-  const paragraphElement = screen.getByTestId('user');
+    const paragraphElement = screen.getByTestId('user');
 
-  expect(paragraphElement).toHaveTextContent(/hello ahmed/i);
+    expect(paragraphElement).toHaveTextContent(/hello ahmed/i);
+  });
 });

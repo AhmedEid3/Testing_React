@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import User from './User';
@@ -33,11 +34,7 @@ describe('User', () => {
 
   it('should render edit button and remove button', () => {
     render(
-      <User
-        user={mockUsersData[0]}
-        onEditUser={jest.fn}
-        onRemoveUser={jest.fn}
-      />,
+      <User user={mockUsersData[0]} onEditUser={vi.fn} onRemoveUser={vi.fn} />,
     );
 
     const editBtn = screen.getByRole('button', { name: /edit user/i });
@@ -50,8 +47,8 @@ describe('User', () => {
   it('should call edit button and remove button', async () => {
     userEvent.setup();
 
-    const mockOnEditUser = jest.fn();
-    const mockOnRemoveUser = jest.fn();
+    const mockOnEditUser = vi.fn();
+    const mockOnRemoveUser = vi.fn();
 
     render(
       <User
