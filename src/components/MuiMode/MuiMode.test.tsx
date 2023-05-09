@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
-import { render, screen } from '../../test-utils';
+import { screen } from '@testing-library/react';
+import { render } from '../../test-utils';
 import MuiMode from './MuiMode';
 
 describe('MuiMode', () => {

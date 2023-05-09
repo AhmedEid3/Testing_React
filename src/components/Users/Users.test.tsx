@@ -6,7 +6,7 @@ import { mockUsersData } from '../../mocks/mockUsers';
 import { server } from '../../mocks/server';
 
 describe('Users', () => {
-  it('should render correctly', async () => {
+  it('should render correctly', () => {
     render(<Users />);
     const headingEle = screen.getByRole('heading');
 
