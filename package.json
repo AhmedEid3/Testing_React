@@ -8,7 +8,7 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "test": "vitest",
-    "test:pre-push": "vitest --watchAll=false",
+    "test:pre-push": "vitest related --run",
     "test:coverage": "vitest run --coverage",
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --quiet",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,scss}\"",
